@@ -1,5 +1,6 @@
 body {
-  font-family: "Fjord One";
+  font-family: 'Fjord One', serif;
+  text-align: center;
 }
 
 section.feed-viewer-single {
@@ -7,4 +8,30 @@ section.feed-viewer-single {
   display: inline-block;
   vertical-align: top;
   padding: 1em;
+  text-align: left;
+
+  h1 {
+    font-size: 1.5em;
+    line-height: 1.5em;
+  }
+
+  h3 {
+    font-size: 0.75em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    border-bottom: 1px solid #c0c0c0;
+    line-height: 1em;
+
+
+    margin: 0;
+    padding-bottom: 0.5em;
+
+  }
+
+  p.story-actions {
+    text-align: center;
+  }
+
 }

@@ -47,6 +47,7 @@ var SingleStoryViewer = (function () {
     function SingleStoryViewer(feedEngine, $container) {
         this._feedEngine = feedEngine;
         this._$container = $container;
+        this._feed = this._feedEngine.getFeed();
         this._entries = this._feedEngine.getEntries();
         this._entryCount = this._entries.length;
         this._index = 0;
@@ -64,6 +65,7 @@ var SingleStoryViewer = (function () {
         var entry = this._entries[this._index];
         var template = this._feedEngine.getTemplate();
         var content = {
+            feedName : this._feed.title,
             title: entry.title,
             author: entry.author,
             date: entry.publishedDate,
