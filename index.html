@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+        <script src="http://www.google.com/jsapi"></script>
+    </head>
+    <body>
+
+        <script id="story-template" type="text/x-handlebars-template">
+            <h1>{{title}}</h1>
+            <h2>{{author}}</h2>
+            <time>{{date}}</time>
+            <article>{{{content}}}</article>
+            <p>
+                <a href="{{link}}" class="read-more" target="_blank">Read More ...</a>
+            </p>
+            <p>
+                <a href="#prev" class="previous-story">&lt; Prev</a>
+                <span class="story-index">{{index}} of {{total}}</span>
+                <a class="next-story" href="#next">Next &gt;</a>
+            </p>
+        </script>
+
+        <section class="feed-viewer-single" data-feed-url="http://feeds.feedburner.com/ShareSkypeEn">
+        </section>
+
+        <section class="feed-viewer-single" data-feed-url="http://feeds.feedburner.com/engadget">
+        </section>
+
+        <section class="feed-viewer-single" data-feed-url="http://feeds.feedburner.com/boingboing">
+        </section>
+
+        <section class="feed-viewer-single" data-feed-url="http://feeds.feedburner.com/techcrunch">
+        </section>
+
+        <section class="feed-viewer-single" data-feed-url="http://feeds.feedburner.com/readwriteweb">
+        </section>
+
+        <section class="feed-viewer-single" data-feed-url="http://feeds.feedburner.com/codinghorror">
+        </section>
+
+        <section class="feed-viewer-single" data-feed-url="http://feeds.feedburner.com/crunchgear">
+        </section>
+
+        <section class="feed-viewer-single" data-feed-url="http://feeds.feedburner.com/coolest-gadgets">
+        </section>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.rc.2/handlebars.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/feed-engine.js"></script>
+        <script src="js/main.js"></script>
+
+    </body>
+</html>
