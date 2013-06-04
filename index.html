@@ -9,7 +9,9 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
+        <link href='http://fonts.googleapis.com/css?family=Fjord+One' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.min.css">
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/style.css">
         <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.min.js"></script>
@@ -19,7 +21,7 @@
     <body>
 
         <script id="story-template" type="text/x-handlebars-template">
-            <h1>{{title}}</h1>
+            <h1>{{{title}}}</h1>
             <h2>{{author}}</h2>
             <time>{{date}}</time>
             <article>{{{content}}}</article>
@@ -27,9 +29,9 @@
                 <a href="{{link}}" class="read-more" target="_blank">Read More ...</a>
             </p>
             <p>
-                <a href="#prev" class="previous-story">&lt; Prev</a>
+                <a href="#prev" class="btn previous-story">&lt; Prev</a>
                 <span class="story-index">{{index}} of {{total}}</span>
-                <a class="next-story" href="#next">Next &gt;</a>
+                <a class="btn next-story" href="#next">Next &gt;</a>
             </p>
         </script>
 
