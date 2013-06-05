@@ -4,19 +4,30 @@ body {
 }
 
 section.feed-viewer-single {
-  width: 30em;
-  display: inline-block;
+  margin: 0;
+  @storyMargin: 0.75em;
+  @storyWidth: 30em;
+  @minWidth: ((@storyWidth * 2) + (@storyMargin * 4));
+
   vertical-align: top;
-  padding: 1em;
+  padding: 0;
+  margin: @storyMargin;
   text-align: left;
 
+  @media all and (min-width: @minWidth) {
+    width: @storyWidth;
+    display: inline-block;
+  }
+
+
   h1 {
-    font-size: 1.5em;
-    line-height: 1.5em;
+    font-size: 1.3em;
+    line-height: 1.3em;
   }
 
   h3 {
-    font-size: 0.75em;
+    font-size: 1em;
+
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -24,14 +35,25 @@ section.feed-viewer-single {
     border-bottom: 1px solid #c0c0c0;
     line-height: 1em;
 
-
     margin: 0;
     padding-bottom: 0.5em;
 
   }
 
-  p.story-actions {
-    text-align: center;
+  .story-actions {
+    margin: 0.3em;
+    padding: 0;
+
+    @media all and (min-width: @minWidth) {
+      display: none;
+    }
+
+  }
+
+  &:hover {
+    .story-actions {
+      display: block;
+    }
   }
 
 }

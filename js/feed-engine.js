@@ -14,6 +14,7 @@ var FeedEngine = (function () {
     FeedEngine.prototype.loadFeed = function () {
         var feed = new google.feeds.Feed(this._feedUrl);
         feed.setNumEntries(10);
+        feed.includeHistoricalEntries();
         var self = this;
         feed.load(function(result) {
             if (!result.error) {
@@ -79,16 +80,16 @@ var SingleStoryViewer = (function () {
     };
 
     SingleStoryViewer.prototype.displayPrevious = function () {
-        if (this._index > 0) {
-            this._index--;
+        if (this._index < this._entryCount - 1) {
+            this._index++;
             this.displayEntry();
         }
         return false;
     };
 
     SingleStoryViewer.prototype.displayNext = function () {
-        if (this._index < this._entryCount - 1) {
-            this._index++;
+        if (this._index > 0) {
+            this._index--;
             this.displayEntry();
         }
         return false;

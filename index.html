@@ -50,17 +50,23 @@
 
         <script id="story-template" type="text/x-handlebars-template">
             <h3>{{feedName}}</h3>
+            <ul class="pager story-actions">
+                <li class="previous">
+                    <a class="previous-story" href="#previous">&larr; Older</a>
+                </li>
+                <li class="story-index">
+                    {{index}} of {{total}}
+                </li>
+                <li class="next">
+                    <a class="next-story" href="#next">Newer &rarr;</a>
+                </li>
+            </ul>
             <h1>{{{title}}}</h1>
             <p>
                 <b>{{author}}</b> <time>on {{date}}</time>
             </p>
             <p>
                 <article>{{{content}}} <a href="{{link}}" class="read-more" target="_blank">Read More</a></article>
-            </p>
-            <p class="story-actions">
-                <a href="#prev" class="btn previous-story">&lt; Prev</a>
-                <span class="story-index">{{index}} of {{total}}</span>
-                <a class="btn next-story" href="#next">Next &gt;</a>
             </p>
         </script>
 

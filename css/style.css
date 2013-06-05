@@ -3,18 +3,24 @@ body {
   text-align: center;
 }
 section.feed-viewer-single {
-  width: 30em;
-  display: inline-block;
+  margin: 0;
   vertical-align: top;
-  padding: 1em;
+  padding: 0;
+  margin: 0.75em;
   text-align: left;
 }
+@media all and (min-width: 63em) {
+  section.feed-viewer-single {
+    width: 30em;
+    display: inline-block;
+  }
+}
 section.feed-viewer-single h1 {
-  font-size: 1.5em;
-  line-height: 1.5em;
+  font-size: 1.3em;
+  line-height: 1.3em;
 }
 section.feed-viewer-single h3 {
-  font-size: 0.75em;
+  font-size: 1em;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -23,6 +29,15 @@ section.feed-viewer-single h3 {
   margin: 0;
   padding-bottom: 0.5em;
 }
-section.feed-viewer-single p.story-actions {
-  text-align: center;
+section.feed-viewer-single .story-actions {
+  margin: 0.3em;
+  padding: 0;
+}
+@media all and (min-width: 63em) {
+  section.feed-viewer-single .story-actions {
+    display: none;
+  }
+}
+section.feed-viewer-single:hover .story-actions {
+  display: block;
 }
