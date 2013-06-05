@@ -8,20 +8,34 @@ var FeedEngine = (function () {
         this._feedLoaded = feedLoadedCallback;
         this._feedError = feedErrorCallback;
         this._template = template;
+        this._firstRun = true;
         this.loadFeed();
     }
 
     FeedEngine.prototype.loadFeed = function () {
         var feed = new google.feeds.Feed(this._feedUrl);
-        feed.setNumEntries(10);
         var self = this;
+        feed.setNumEntries(10);
         feed.load(function(result) {
             if (!result.error) {
                 self._feed = result.feed;
                 self._feedLoaded();
             } else {
-                self._feedError(result.error);
+                if (self._firstRun) {
+                    self.findFeed();
+                } else {
+                    self._feedError(result.error);
+                }
             }
+            self._firstRun = false;
+        });
+    };
+
+    FeedEngine.prototype.findFeed = function () {
+        var self = this;
+        google.feeds.lookupFeed(this._feedUrl, function() {
+            self._feedUrl = this.url;
+            self.loadFeed();
         });
     };
 
