@@ -8,21 +8,38 @@ var FeedEngine = (function () {
         this._feedLoaded = feedLoadedCallback;
         this._feedError = feedErrorCallback;
         this._template = template;
+        this._firstRun = true;
         this.loadFeed();
     }
 
     FeedEngine.prototype.loadFeed = function () {
+        var self = this;
         var feed = new google.feeds.Feed(this._feedUrl);
         feed.setNumEntries(10);
         feed.includeHistoricalEntries();
-        var self = this;
         feed.load(function(result) {
             if (!result.error) {
                 self._feed = result.feed;
                 self._feedLoaded();
             } else {
-                self._feedError(result.error);
+                if (self._firstRun) {
+                    self._firstRun = false;
+                    self.findFeed();
+                } else {
+                    self._feedError(result.error);
+                }
             }
+
+        });
+    };
+
+    FeedEngine.prototype.findFeed = function () {
+        var self = this;
+        google.feeds.lookupFeed(this._feedUrl, function() {
+            if (this.url) {
+                self._feedUrl = this.url;
+            }
+            self.loadFeed();
         });
     };
 
