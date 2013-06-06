@@ -54,7 +54,7 @@
         </section>
 
         <script id="story-template" type="text/x-handlebars-template">
-            <h3>{{feedName}}</h3>
+            <h3>{{{feedName}}}</h3>
             <ul class="pager story-actions">
                 <li class="previous">
                     <a class="previous-story" href="#previous">&larr; Older</a>
@@ -68,7 +68,7 @@
             </ul>
             <h1>{{{title}}}</h1>
             <p>
-                by <b>{{author}}</b> <time>on {{date}}</time>
+                by <b>{{{author}}}</b> <time>on {{date}}</time>
             </p>
             <p>
                 <article>{{{content}}} <a href="{{link}}" class="read-more" target="_blank">Read More</a></article>
