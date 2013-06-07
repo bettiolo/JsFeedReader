@@ -26,56 +26,60 @@
 
         <a href="https://github.com/bettiolo/JsFeedReader"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
 
-        <section class="feed-viewer-single" data-feed-url="http://feeds.feedburner.com/ShareSkypeEn">
-        </section>
+        <ul class="nav nav-tabs" id="mainTabs">
+            <li class="active">
+                <a href="#newspaper">Newspaper</a>
+            </li>
+            <li>
+                <a href="#settings">Settings</a>
+            </li>
+        </ul>
 
-        <section class="feed-viewer-single" data-feed-url="http://slashdot.org/">
-        </section>
+        <div class="tab-content">
+            <div class="tab-pane active" id="newspaper">
+            </div>
+            <div class="tab-pane" id="settings">
+                <textarea id="feedUrls">
+http://slashdot.org/
+http://feeds.feedburner.com/engadget
+http://feeds.feedburner.com/boingboing
+http://feeds.feedburner.com/techcrunch
+http://feeds.feedburner.com/readwriteweb
+http://feeds.feedburner.com/codinghorror
+http://feeds.feedburner.com/crunchgear
+http://feeds.feedburner.com/coolest-gadgets
+                </textarea>
+            </div>
+        </div>
 
-        <section class="feed-viewer-single" data-feed-url="http://feeds.feedburner.com/engadget">
-        </section>
-
-        <section class="feed-viewer-single" data-feed-url="http://feeds.feedburner.com/boingboing">
-        </section>
-
-        <section class="feed-viewer-single" data-feed-url="http://feeds.feedburner.com/techcrunch">
-        </section>
-
-        <section class="feed-viewer-single" data-feed-url="http://feeds.feedburner.com/readwriteweb">
-        </section>
-
-        <section class="feed-viewer-single" data-feed-url="http://feeds.feedburner.com/codinghorror">
-        </section>
-
-        <section class="feed-viewer-single" data-feed-url="http://feeds.feedburner.com/crunchgear">
-        </section>
-
-        <section class="feed-viewer-single" data-feed-url="http://feeds.feedburner.com/coolest-gadgets">
-        </section>
+        <ul class="log"></ul>
 
         <script id="story-template" type="text/x-handlebars-template">
-            <h3>{{{feedName}}}</h3>
-            <ul class="pager story-actions">
-                <li class="previous">
-                    <a class="previous-story" href="#previous">&larr; Older</a>
-                </li>
-                <li class="story-index">
-                    {{index}} of {{total}}
-                </li>
-                <li class="next">
-                    <a class="next-story" href="#next">Newer &rarr;</a>
-                </li>
-            </ul>
-            <h1>{{{title}}}</h1>
-            <p>
-                by <b>{{{author}}}</b> <time>on {{date}}</time>
-            </p>
-            <p>
-                <article>{{{content}}} <a href="{{link}}" class="read-more" target="_blank">Read More</a></article>
-            </p>
+            <section class="feed-viewer-single" data-feed-url="{{feedUrl}}">
+                <h3>{{{feedName}}}</h3>
+                <ul class="pager story-actions">
+                    <li class="previous">
+                        <a class="previous-story" href="#previous">&larr; Older</a>
+                    </li>
+                    <li class="story-index">
+                        {{index}} of {{total}}
+                    </li>
+                    <li class="next">
+                        <a class="next-story" href="#next">Newer &rarr;</a>
+                    </li>
+                </ul>
+                <h1>{{{title}}}</h1>
+                <p>
+                    by <b>{{{author}}}</b> <time>on {{date}}</time>
+                </p>
+                <p>
+                    <article>{{{content}}} <a href="{{link}}" class="read-more" target="_blank">Read More</a></article>
+                </p>
+            </section>
         </script>
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.rc.2/handlebars.min.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/feed-engine.js"></script>

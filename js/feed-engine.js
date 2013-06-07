@@ -65,6 +65,7 @@ var SingleStoryViewer = (function () {
     function SingleStoryViewer(feedEngine, $container) {
         this._feedEngine = feedEngine;
         this._$container = $container;
+        this._$story = null;
         this._feed = this._feedEngine.getFeed();
         this._entries = this._feedEngine.getEntries();
         this._entryCount = this._entries.length;
@@ -73,11 +74,6 @@ var SingleStoryViewer = (function () {
             this.displayEntry();
         }
     }
-
-    SingleStoryViewer.prototype._bindControls = function () {
-        this._$container.find('a.previous-story').click(this.displayPrevious.bind(this));
-        this._$container.find('a.next-story').click(this.displayNext.bind(this));
-    };
 
     SingleStoryViewer.prototype.displayEntry = function () {
         var entry = this._entries[this._index];
@@ -92,8 +88,21 @@ var SingleStoryViewer = (function () {
             index: this._index + 1,
             total: this._entries.length
         };
-        this._$container.html(template(content));
+        var storyElement = $($.trim(template(content)));
+        if (this._$story) {
+            this._$story.replaceWith(storyElement);
+            this._$story = storyElement;
+        } else {
+            this._$story = storyElement;
+            this._$container.append(this._$story);
+        }
         this._bindControls();
+    };
+
+
+    SingleStoryViewer.prototype._bindControls = function () {
+        this._$story.find('a.previous-story').click(this.displayPrevious.bind(this));
+        this._$story.find('a.next-story').click(this.displayNext.bind(this));
     };
 
     SingleStoryViewer.prototype.displayPrevious = function () {

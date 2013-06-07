@@ -1,6 +1,9 @@
 body {
   font-family: 'Fjord One', serif;
-  text-align: center;
+}
+textarea {
+  min-width: 40em;
+  min-height: 30em;
 }
 section.feed-viewer-single {
   margin: 0;
